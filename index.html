@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        h1 {
+            background-color: forestgreen;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>The Psychic Game</h1>
+
+    <img src="https://cdn.psychologytoday.com/files/imagecache/article-inline-half/blogs/86531/2012/01/86548-82300.jpg">
+    <h3>Guess what letter I'm thinking of</h3>
+    <h3 id="win">Wins: </h3>
+    <h3 id="losses">Losses: </h3>
+    <h3 id="GuessesSoFar">Your Guesses So Far:</h3>
+    <script>
+        //  this is a comment
+        //  the computer picks a letter
+        var alphabet = ["A", "E", "I", "O", "U"];
+        var random = Math.floor(Math.random() * 5);
+        var computerChoice = alphabet[random];
+
+        var wincounter = 0
+        var lossescounter = 0
+        var Guesses = 0
+
+        console.log("this is my array of vowels:", alphabet)
+        console.log("this is my random number:", random)
+        console.log("this is the random computerChoice the computer chose:", computerChoice)
+
+
+        //  the user picks a computerChoice
+        document.onkeyup = function (event) {
+            var userChoice = event.key;
+
+            // compare the computer computerChoice with the users computerChoice
+            if (userChoice === computerChoice) {
+                alert("Yaaassss")
+                wincounter = wincounter + 1
+                document.getElementById("wins").innerHTML = 'wins:' + wincounter;
+                // of they match alert "You Win" then make wins go up in increments of 1 per win
+
+            } else {
+                //  if they don't match alert "You Lose" and losses goup in increments of 1
+                alert("Sorry , the answer was " + computerChoice)
+                lossescounter = lossescounter + 1
+                document.getElementById("losses").innerHTML = 'losses:' + lossescounter;
+                
+            }
+            Guesses = wincounter + lossescounter 
+            document.getElementById("GuessesSoFar").innerHTML = "guesses so far " + Guesses
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
